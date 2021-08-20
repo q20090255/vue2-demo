@@ -1,5 +1,8 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <p>顶部标签</p>
+    <router-view />
+  </div>
 </template>
 
 <style lang="scss">
