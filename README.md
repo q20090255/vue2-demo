@@ -7,7 +7,7 @@
         - 多核构建，服务器压缩（gzip）
 
 - doed
-    - 测试
+    - baseScss
 
 ---
 
