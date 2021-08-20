@@ -31,7 +31,7 @@ module.exports = {
     ], // 数组/对象末位元素不加逗号
     'multiline-ternary': ['error', 'always-multiline'], // 如果三元表达式自身跨越多个行，则在三元表达式的操作数(: / ? / && )之间强制换行。
     'object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }], // 允许对象属性不换行，默认是强制换行
-    'no-else-return': 'error', // if 内有 return 不允许结束后再跟 else
+    'no-else-return': 'off', // if 内有 return 不允许结束后再跟 else
     'no-unused-vars': [
       0,
       {
@@ -41,6 +41,7 @@ module.exports = {
         args: 'none'
       }
     ], // 禁止有声明了却未使用的变量。暂时注释掉也会报错，所以注掉
-    'no-unused-components': 'off' // 禁止有注册了却未使用的组件，原因同上
+    'no-unused-components': 'off', // 禁止有注册了却未使用的组件，原因同上
+    'linebreak-style': [0, 'error', 'window'] // 换行符限制
   }
 }
