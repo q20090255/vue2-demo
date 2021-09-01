@@ -25,7 +25,7 @@
     computed: {
       // 路由列表
       routerList() {
-        let targetList = router.filter(i => i.meta && i.meta.isTop)
+        let targetList = router.filter(i => i?.meta?.isTop ?? false)
         return targetList
       }
     },
