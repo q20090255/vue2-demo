@@ -1,3 +1,5 @@
+const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV) // 生产环境检测
+
 module.exports = {
   root: true,
   env: {
@@ -5,11 +7,12 @@ module.exports = {
   },
   extends: ['plugin:vue/essential', 'eslint:recommended', '@vue/prettier'],
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    ecmaVersion: 2020
   },
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-console': IS_PROD ? 'warn' : 'off',
+    'no-debugger': IS_PROD ? 'warn' : 'off',
     semi: ['warn', 'never'], // 语句末尾不加分号
     quotes: ['warn', 'single'], // 默认使用单引号
     'jsx-quotes': ['warn', 'prefer-single'], // JSX属性中使用一致的单引号
@@ -42,6 +45,12 @@ module.exports = {
       }
     ], // 禁止有声明了却未使用的变量。暂时注释掉也会报错，所以注掉
     'no-unused-components': 'off', // 禁止有注册了却未使用的组件，原因同上
-    'linebreak-style': [0, 'error', 'window'] // 换行符限制
+    'linebreak-style': [0, 'error', 'window'], // 换行符限制
+    'vue/no-use-v-if-with-v-for': [
+      'error',
+      {
+        allowUsingIterationVar: true
+      }
+    ] // v-if + v-for 混用问题
   }
 }

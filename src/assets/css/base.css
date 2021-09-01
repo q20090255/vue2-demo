@@ -1,4 +1,4 @@
-// 清除默认样式
+/*清除默认样式*/
 * {
   box-sizing: border-box;
 }
@@ -16,7 +16,7 @@ select, input {
   vertical-align: middle;
 }
 
-// 清除聚焦表色
+/*清除聚焦表色*/
 fieldset, img, input, button {
   border: 0 none;
   padding: 0;
@@ -24,23 +24,23 @@ fieldset, img, input, button {
   outline-style: none;
 }
 
-// 防止拖动
+/*防止拖动*/
 textarea {
   resize: none;
 }
 
-// 去掉图片底边默认的3像素空白缝隙，或者用display：block也可以
+/*去掉图片底边默认的3像素空白缝隙，或者用display：block也可以*/
 img {
   border: 0;
   vertical-align: middle;
 }
 
-// 边框合并
+/*边框合并*/
 table {
   border-collapse: collapse;
 }
 
-// 干掉下划线
+/*干掉下划线*/
 a {
   text-decoration: none;
 }

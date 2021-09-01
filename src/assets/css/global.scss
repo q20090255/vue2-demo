@@ -1,0 +1,27 @@
+.viewClass {
+  padding: 1%;
+}
+
+// 单行省略
+.ellipsis_singleLine {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 高度塌陷处理
+.clearfix {
+  display: inline-block;
+
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+
+  * html & {
+    height: 1px
+  }
+}

@@ -3,11 +3,17 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-// 公共样式
-import '@/assets/css/index.scss'
+// 重置基础样式
+import '@/assets/css/base.css'
+
 // 引入功能模块
-// import "@/utils/elementModule"
-// import "@/utils/iviewModule"
+// import "@/utils/element-module"
+// import "@/utils/iview-module"
+
+// 引入公用方法
+import common from '@/utils/common'
+
+Vue.prototype.$com = common
 
 Vue.config.productionTip = false
 

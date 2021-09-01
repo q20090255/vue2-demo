@@ -6,6 +6,6 @@ module.exports = {
   printWidth: 100, // 一行最大宽度，超标自动换行
   arrowParens: 'avoid', // 箭头函数单一参数省略括号
   useTabs: false, // tab缩进，默认false
-  vueIndentScriptAndStyle: false, // script、style标签不缩进
+  vueIndentScriptAndStyle: true, // script、style标签缩进
   endOfLine: 'auto' // 换行符
 }

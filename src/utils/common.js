@@ -1,9 +1,3 @@
-/**
- * @author lbq
- * @Date 2021/4/22 15:58
- * @Description 公共函数
- */
-
 import Cookies from 'js-cookie'
 import Vue from 'vue'
 
@@ -13,10 +7,10 @@ import Vue from 'vue'
  */
 const TOKEN_KEY = 'token'
 const COOKIE_EXPIRES = 1 // cookie有效期
-export const setToken = token => {
+const setToken = token => {
   Cookies.set(TOKEN_KEY, token, { expires: COOKIE_EXPIRES })
 }
-export const getToken = () => {
+const getToken = () => {
   const token = Cookies.get(TOKEN_KEY)
   if (token) {
     return token
@@ -29,7 +23,7 @@ export const getToken = () => {
  * @Description 从url解析参数
  * @param {string} url
  */
-export const getParamsByUrl = url => {
+const getParamsByUrl = url => {
   const paramsArr = url.split('?')[1].split('&')
   const paramsObj = {}
   paramsArr.forEach(key => {
@@ -44,7 +38,7 @@ export const getParamsByUrl = url => {
  * @param {string} date 时间
  * @param {string} fmt 时间格式 YYYY-mm-DD HH:MM:SS | ...
  */
-export const formatDate = (date = '', fmt = 'YYYY-mm-DD') => {
+const formatDate = (date = '', fmt = 'YYYY-mm-DD') => {
   try {
     if (!date) return '/'
     let time = ''
@@ -77,7 +71,7 @@ export const formatDate = (date = '', fmt = 'YYYY-mm-DD') => {
  * @Description 单一数组去重
  * @param {array} arr 数组
  */
-export const uniqueArr = arr => {
+const uniqueArr = arr => {
   let result = []
   let obj = {}
   for (let i of arr) {
@@ -94,7 +88,7 @@ export const uniqueArr = arr => {
  * @Description 点击复制到剪贴板
  * @param {string} text 文字
  */
-export const copyText = text => {
+const copyText = text => {
   let _input = document.createElement('input')
   _input.setAttribute('id', 'copyInput')
   _input.setAttribute('value', text)
@@ -117,3 +111,13 @@ export const copyText = text => {
  * 1. 信息弹窗
  * 2. 确认弹窗
  */
+
+// export default，在引入的时候不能直接解构；要多加一行解构
+export default {
+  setToken,
+  getToken,
+  getParamsByUrl,
+  formatDate,
+  uniqueArr,
+  copyText
+}

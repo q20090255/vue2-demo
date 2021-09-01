@@ -1,9 +1,3 @@
-/**
- * @author lbq
- * @Date 2021/5/11 16:11
- * @Description 比较少用到的方法
- */
-
 import Vue from 'vue'
 
 /**
@@ -11,7 +5,7 @@ import Vue from 'vue'
  * @param {array} arr 数组
  * @param {string} keyname 键名
  */
-const uniqueArr1 = (arr, keyname) => {
+export const uniqueArr1 = (arr, keyname) => {
   const res = new Map()
   return arr.filter(item => {
     return !res.has(item[keyname]) && res.set(item[keyname], 1)
@@ -22,7 +16,7 @@ const uniqueArr1 = (arr, keyname) => {
  * @Description 将时间戳转换为剩余天数(倒数)
  * @param {string|number} timestamp
  */
-const getCountdown = timestamp => {
+export const getCountdown = timestamp => {
   // 天数（转换成字符串类型，以防网不好的情况下，出现now）
   var day = timestamp / (60 * 60 * 24)
   var days = null
@@ -56,7 +50,7 @@ const getCountdown = timestamp => {
  * @param {number} time
  * @param {sting} type 类型
  */
-const popup = (msg = '', time = 2000, type = 'info') => {
+export const popup = (msg = '', time = 2000, type = 'info') => {
   alert(msg)
   // Vue.prototype.$message({
   //   message: msg,
@@ -67,17 +61,11 @@ const popup = (msg = '', time = 2000, type = 'info') => {
   // });
 }
 
-export default {
-  uniqueArr1,
-  getCountdown,
-  popup
-}
-
 /**
  * @Description 将英文月份转换成中文数字
  * @param {string} str
  */
-let engMonthToChiMonth = str => {
+export const engMonthToChiMonth = str => {
   let mm = str.toUpperCase()
   var em = new Array(
     'JAN',
@@ -133,3 +121,18 @@ let engMonthToChiMonth = str => {
   }
   return mm
 }
+
+/**
+ * @Description 使用可选链操作符 ?.
+ * @param {array} target 数组
+ */
+// export const useOptionChain = target => {
+//   return new Proxy(target, {
+//     get: (target, propKey) => {
+//       const propKeyArr = propKey.split('?.')
+//       console.log(target, propKey)
+//       return false
+//       return propKeyArr.reduce((a, b) => a?.[b], target)
+//     }
+//   })
+// }
