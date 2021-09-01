@@ -34,6 +34,8 @@
       // 路由跳转
       goPage(item) {
         console.log('路由信息', item)
+        let routerName = item.name
+        this.$router.push({ name: routerName })
       }
     },
     mounted() {}
