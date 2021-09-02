@@ -8,6 +8,7 @@
 - doed
     - baseScss
     - 接入husky构建提交工作流
+    - 导入了elementUI
     
 ---
 
