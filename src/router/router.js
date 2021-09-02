@@ -1,43 +1,29 @@
-/**
- * meta 可配置参数
- * @param {boolean} keepAlive 是否缓存页面
- * @param {string} title 页面标题
- * @param {boolean} isTop 是否放在首页
- */
+import module_router from './module-router'
 
 const router = [
   {
     path: '/',
-    redirect: '/index'
+    redirect: '/vue-demo'
   },
   {
     // 首页
-    path: '/index',
-    name: 'index',
+    path: '/vue-demo',
+    name: 'vue-demo',
     component: () => import('@/views/index/index.vue'),
     meta: {
       keepAlive: false,
       title: '首页'
-    }
+    },
+    children: module_router
   },
-  // 验证模块
+  // 错误模块
   {
-    path: '/verify-tpl',
-    name: 'verify-tpl',
-    component: () => import('@/views/verify-tpl/index.vue'),
+    path: '*',
+    name: '404_1',
+    component: () => import('@/views/error-page/404.vue'),
     meta: {
-      title: '验证模块',
-      isTop: true
-    }
-  },
-  // 测试用的模块
-  {
-    path: '/test-modeule',
-    name: 'test-module',
-    component: () => import('@/views/test-module/index.vue'),
-    meta: {
-      title: '测试模块',
-      isTop: true
+      title: '404',
+      isShow: true
     }
   }
 ]

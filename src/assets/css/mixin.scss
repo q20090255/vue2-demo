@@ -5,3 +5,28 @@
   -webkit-line-clamp: $numoflines;
   overflow: hidden;
 }
+
+// 背景图片
+@mixin bis($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+// 居中
+@mixin all_middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin width_middle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin height_middle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
