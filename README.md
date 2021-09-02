@@ -2,12 +2,12 @@
 
 - need-do
     - Vuex模块化
+    - webpack配置
+        - 多核构建，服务器压缩（gzip）
 
 - doed
     - baseScss
     - 接入husky构建提交工作流
-    - webpack配置
-        - 多核构建，服务器压缩（gzip）
     
 ---
 
