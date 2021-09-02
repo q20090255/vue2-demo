@@ -7,7 +7,7 @@ import store from './store'
 import '@/assets/css/base.css'
 
 // 引入功能模块
-// import "@/utils/element-module"
+import '@/utils/element-module.js'
 // import "@/utils/iview-module"
 
 // 引入公用方法

@@ -27,17 +27,15 @@ module.exports = {
 
   // webpack-dev-server 相关配置
   devServer: {
-    overlay: {
-      // 让浏览器 overlay 同时显示警告和错误
-      warnings: false,
-      errors: true
-    },
+    // overlay: {
+    //   // 让浏览器 overlay 同时显示警告和错误
+    //   warnings: false,
+    //   errors: true
+    // },
     // 自动打开浏览器
     open: false,
     // 设置为0.0.0.0则所有的地址均能访问
     host: '0.0.0.0',
-    // 保存代码的时候是否自动刷新页面
-    inline: true,
     // 单纯设置为true的时候，如果编译报错，会抛出错误，你重新改成正确的，这个时候又会触发重新编译，整个浏览器会重新刷新！
     hot: true,
     // 这个也设置的话，如果编译报错，你再改成正确的，重新编译，浏览器不会刷新！
@@ -162,13 +160,12 @@ module.exports = {
     // js输出重构 // 费事浏览器缓存
     config.output.filename = `static/js/[name]&&${process.env.VUE_APP_VERSION}&&${Timestamp}.js`
     config.output.chunkFilename = `static/js/[name]&&${process.env.VUE_APP_VERSION}&&${Timestamp}.js`
-  },
+  }
 
-  // css输出设置
+  /*// css输出设置 - 这里很邪虎，还是别乱来
   css: {
     // 开启 CSS source maps; 感觉有点耗性能
-    sourceMap: false,
-
+    sourceMap: !IS_PROD,
     // css输出重构
     extract: IS_PROD
       ? {
@@ -176,13 +173,11 @@ module.exports = {
           chunkFilename: `static/css/[name]&&${process.env.VUE_APP_VERSION}&&${Timestamp}.css`
         }
       : false,
-
     // cssLoader
     loaderOptions: {},
-
     // 默认情况下，只有 *.module.[ext] 结尾的文件才会被视作 CSS Modules 模块。设置为 false 后你就可以去掉文件名中的 .module 并将所有的 *.(css|css|sass|less|styl(us)?) 文件视为 CSS Modules 模块。
-    requireModuleExtension: false
-  }
+    requireModuleExtension: true
+  }*/
 }
 
 function addStyleResource(rule) {
