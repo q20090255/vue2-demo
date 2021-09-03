@@ -23,7 +23,7 @@ const router = [
     component: () => import('@/views/error-page/404.vue'),
     meta: {
       title: '404',
-      isShow: true
+      isShow: false
     }
   }
 ]

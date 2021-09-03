@@ -10,14 +10,15 @@ export default [
   {
     path: 'verify-tpl',
     name: 'verify-tpl',
-    component: () => import('@/views/verify-tpl/index.vue'),
+    redirect: '/verify-tpl/verify-list',
+    component: { render: c => c('router-view') },
     meta: {
       title: '验证模块',
       isShow: true
     },
     children: [
       {
-        path: 'list',
+        path: 'verify-list',
         name: 'verify-list',
         component: () => import('@/views/verify-tpl/index.vue'),
         meta: {
@@ -28,7 +29,7 @@ export default [
       {
         path: 'verify-fun1',
         name: 'verify-fun1',
-        component: () => import('@/views/verify-tpl/verify-fun1'),
+        component: () => import('@/views/verify-tpl/verify-fun1.vue'),
         meta: {
           title: '表单验证',
           isShow: true
@@ -37,7 +38,7 @@ export default [
       {
         path: 'verify-fun2',
         name: 'verify-fun2',
-        component: () => import('@/views/verify-tpl/verify-fun2'),
+        component: () => import('@/views/verify-tpl/verify-fun2.vue'),
         meta: {
           title: '手工验证',
           isShow: true

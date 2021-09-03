@@ -1,9 +1,6 @@
 <template>
   <div class="viewClass my-view">
-    <h3 class="title">验证用的模块</h3>
-    <div class="line"></div>
-    <el-button plain>表单验证</el-button>
-    <el-button plain>手打验证</el-button>
+    <p class="title">本来想放个列表在这里，但是好像有点多余，不放了</p>
   </div>
 </template>
 
@@ -21,13 +18,11 @@
 
 <style scoped lang="scss">
   .my-view {
+    position: relative;
     .title {
+      color: $light-indigo;
       text-align: center;
-    }
-
-    .line {
-      border: 1px solid $deep-rock;
-      margin: 5px 0;
+      @include all_middle;
     }
   }
 </style>
