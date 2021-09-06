@@ -72,9 +72,15 @@
 
         let IdCardClass = new funjs['IdCardClass'](IDCardNo)
         let isValid = IdCardClass.isValid()
+        let birthDate = IdCardClass.getBirthDate()
+        let sex = IdCardClass.getSex()
+        let getLocal = IdCardClass.getLocal()
 
         console.log(`
-          填没填对：${isValid}
+          填没填对：${isValid},
+          生日：${birthDate},
+          性别：${sex},
+          所在省: ${getLocal}
         `)
       },
       resetInpVal2() {

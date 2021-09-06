@@ -167,7 +167,7 @@ export class IdCardClass {
   // 月
   getBirthMonth() {
     let birthMonth = ''
-    if (this.Valid) birthMonth = this.#ID18.substr(10, 2)
+    if (this.#valid) birthMonth = this.#ID18.substr(10, 2)
     if (birthMonth.charAt(0) == '0') birthMonth = birthMonth.charAt(1)
     return birthMonth
   }
@@ -175,14 +175,14 @@ export class IdCardClass {
   // 日
   getBirthDay() {
     let birthDay = ''
-    if (this.#valid) birthDay = this.ID18.substr(12, 2)
+    if (this.#valid) birthDay = this.#ID18.substr(12, 2)
     return birthDay
   }
 
   // 性别，1：男，0：女
   getSex() {
     let sex = ''
-    if (this.#valid) sex = this.ID18.charAt(16) % 2
+    if (this.#valid) sex = this.#ID18.charAt(16) % 2
     return sex
   }
 
