@@ -1,6 +1,6 @@
 <template>
   <div class="viewClass">
-    <h1>验证方式1</h1>
+    <p>有空再说，不想搞</p>
   </div>
 </template>
 
