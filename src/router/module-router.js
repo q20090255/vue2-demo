@@ -46,6 +46,16 @@ export default [
       }
     ]
   },
+  // 小方法模块
+  {
+    path: 'small-fun',
+    name: 'small-fun',
+    component: () => import('@/views/small-fun/index.vue'),
+    meta: {
+      title: '小方法模块',
+      isShow: true
+    }
+  },
   // 测试用的模块
   {
     path: 'test-modeule',

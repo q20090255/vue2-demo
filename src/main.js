@@ -11,13 +11,13 @@ import '@/assets/css/base.css'
 // import "@/utils/iview-module"
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-
 Vue.use(ElementUI)
 
 // 引入公用方法
 import common from '@/utils/common'
-
 Vue.prototype.$com = common
+import install from '@/utils/common-auto-login'
+install()
 
 Vue.config.productionTip = false
 

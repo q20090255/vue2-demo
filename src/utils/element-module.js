@@ -56,6 +56,8 @@ Vue.use(InputNumber)
 Vue.use(Loading.directive)
 Vue.use(Tooltip)
 
+// MARK: 信息提示可以初始化一个Bata值，就会方便一点
+
 Vue.prototype.$message = Message
 Vue.prototype.$loading = Loading.service
 Vue.prototype.$msgbox = MessageBox
