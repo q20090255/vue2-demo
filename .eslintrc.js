@@ -52,6 +52,6 @@ module.exports = {
         allowUsingIterationVar: true
       }
     ], // v-if + v-for 混用问题
-    'no-useless-escape': 'off'
+    'no-useless-escape': 'off' // 字符串转义校验
   }
 }
