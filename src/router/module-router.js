@@ -56,6 +56,16 @@ export default [
       isShow: true
     }
   },
+  // Vuex模块化模块
+  {
+    path: 'vuex-module',
+    name: 'vuex-module',
+    component: () => import('@/views/vuex-module/index.vue'),
+    meta: {
+      title: 'Vuex模块化模块',
+      isShow: true
+    }
+  },
   // 测试用的模块
   {
     path: 'test-modeule',
