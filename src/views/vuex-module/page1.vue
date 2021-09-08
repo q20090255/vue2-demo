@@ -11,6 +11,8 @@
     <p>到Action啦</p>
     <el-button class="btnClass" @click="handleClick3(1)">changeModuleA1</el-button>
     <el-button class="btnClass" @click="handleClick3(2)">changeModuleA2</el-button>
+    <el-button class="btnClass" @click="handleClick3(3)">changeModuleB1</el-button>
+    <el-button class="btnClass" @click="handleClick3(4)">changeModuleA3</el-button>
   </div>
 </template>
 
@@ -52,6 +54,17 @@
             info: '1000',
             time: 2000
           })
+        } else if (key == 3) {
+          this.$store.dispatch('changeData')
+        } else if (key == 4) {
+          this.$store
+            .dispatch('asyncSetChange2')
+            .then(res => {
+              console.log('外 成功了', res)
+            })
+            .catch(err => {
+              console.log('外 失败了', err)
+            })
         }
       }
     }

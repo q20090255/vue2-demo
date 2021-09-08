@@ -49,9 +49,7 @@ const moduleB = {
     }
   },
   actions: {
-    // 实测vue中无法将异步操作的结果通过resolve回传给调用方法的.then()
     changeData: async ({ commit, state }, payload) => {
-      // 等待数据更新完毕后弹窗
       await new Promise(function (resolve, reject) {
         setTimeout(function () {
           commit('addAge')

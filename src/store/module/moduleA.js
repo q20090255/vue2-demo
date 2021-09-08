@@ -92,15 +92,8 @@ const moduleA = {
     },
     asyncSetChange2: ({ dispatch, state }) => {
       return new Promise((resolve, reject) => {
-        dispatch('asyncSetPartB').then(() => {
-          dispatch('asyncSetpartA').then(() => {
-            if (state.sum !== 0) {
-              resolve('done')
-            } else {
-              reject('no change')
-            }
-          })
-        })
+        // resolve('我是成功的返回值')
+        reject({ aaa: '我是失败的返回值' })
       })
     }
   }

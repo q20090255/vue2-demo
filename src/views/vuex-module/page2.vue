@@ -7,6 +7,12 @@
     </div>
     <el-button class="btnClass" @click="addAge1">加一下年龄</el-button>
     <el-button class="btnClass" @click="handleClick2">改一手数据</el-button>
+    <div class="line"></div>
+    <p>到Action啦</p>
+    <el-button class="btnClass" @click="handleClick3(1)">changeModuleA1</el-button>
+    <el-button class="btnClass" @click="handleClick3(2)">changeModuleA2</el-button>
+    <el-button class="btnClass" @click="handleClick3(3)">changeModuleB1</el-button>
+    <el-button class="btnClass" @click="handleClick3(4)">changeModuleA3</el-button>
   </div>
 </template>
 
@@ -44,12 +50,38 @@
         addAge1: 'addAge',
         setUserInfo1: 'setUserInfo'
       }),
+      ...mapActions({
+        asyncSetpartA1: 'asyncSetpartA',
+        asyncSetPartB1: 'asyncSetPartB',
+        changeData1: 'changeData',
+        asyncSetChange2A: 'asyncSetChange2'
+      }),
       handleClick2() {
         let params = {
           nowTime: new Date(),
           ceshi: '哈哈哈哈哈'
         }
         this.setUserInfo1(params)
+      },
+      handleClick3(key) {
+        if (key == 1) {
+          this.asyncSetpartA1(999)
+        } else if (key == 2) {
+          this.asyncSetPartB1({
+            info: '1000',
+            time: 2000
+          })
+        } else if (key == 3) {
+          this.changeData1()
+        } else if (key == 4) {
+          this.asyncSetChange2A()
+            .then(res => {
+              console.log('外 成功了', res)
+            })
+            .catch(err => {
+              console.log('外 失败了', err)
+            })
+        }
       }
     }
   }
