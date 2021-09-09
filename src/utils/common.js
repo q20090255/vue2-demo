@@ -68,23 +68,6 @@ const formatDate = (date = '', fmt = 'YYYY-mm-DD') => {
 }
 
 /**
- * @Description 单一数组去重
- * @param {array} arr 数组
- */
-const uniqueArr = arr => {
-  let result = []
-  let obj = {}
-  for (let i of arr) {
-    // 去重，非空
-    if (!obj[i] && i) {
-      result.push(i)
-      obj[i] = 1
-    }
-  }
-  return result
-}
-
-/**
  * @Description 点击复制到剪贴板
  * @param {string} text 文字
  */
@@ -107,17 +90,11 @@ const copyText = text => {
   document.getElementById('copyInput').remove()
 }
 
-/**
- * 1. 信息弹窗
- * 2. 确认弹窗
- */
-
 // export default，在引入的时候不能直接解构；要多加一行解构
 export default {
   setToken,
   getToken,
   getParamsByUrl,
   formatDate,
-  uniqueArr,
   copyText
 }

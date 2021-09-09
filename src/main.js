@@ -7,13 +7,14 @@ import store from './store'
 import '@/assets/css/base.css'
 
 // 引入功能模块
-// import "@/utils/element-module"
+// import '@/utils/element-module.js'
 // import "@/utils/iview-module"
 
 // 引入公用方法
 import common from '@/utils/common'
-
 Vue.prototype.$com = common
+import install from '@/utils/common-auto-login'
+install()
 
 Vue.config.productionTip = false
 

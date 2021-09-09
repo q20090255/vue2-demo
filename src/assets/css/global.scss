@@ -1,5 +1,12 @@
 .viewClass {
-  padding: 1%;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.line {
+  border: 1px solid $light-gray;
+  margin: 5px 0;
 }
 
 // 单行省略
@@ -19,9 +26,5 @@
     height: 0;
     clear: both;
     visibility: hidden;
-  }
-
-  * html & {
-    height: 1px
   }
 }

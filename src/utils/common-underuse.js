@@ -13,6 +13,23 @@ export const uniqueArr1 = (arr, keyname) => {
 }
 
 /**
+ * @Description 单一数组去重
+ * @param {array} arr 数组
+ */
+export const uniqueArr = arr => {
+  let result = []
+  let obj = {}
+  for (let i of arr) {
+    // 去重，非空
+    if (!obj[i] && i) {
+      result.push(i)
+      obj[i] = 1
+    }
+  }
+  return result
+}
+
+/**
  * @Description 将时间戳转换为剩余天数(倒数)
  * @param {string|number} timestamp
  */
@@ -42,23 +59,6 @@ export const getCountdown = timestamp => {
   } else {
     return '已结束'
   }
-}
-
-/**
- * @Description 信息提示
- * @param {string} msg
- * @param {number} time
- * @param {sting} type 类型
- */
-export const popup = (msg = '', time = 2000, type = 'info') => {
-  alert(msg)
-  // Vue.prototype.$message({
-  //   message: msg,
-  //   duration: time ? time : 2000,
-  //   type,
-  //   showClose: true,
-  //   offset: 62
-  // });
 }
 
 /**
@@ -241,4 +241,52 @@ export const getParams = obj => {
       return encodeURIComponent(k) + '=' + encodeURIComponent(obj[k])
     })
     .join('&')
+}
+
+/**
+ * @Description 究级深拷贝
+ */
+const getType = data => {
+  // 获取数据类型
+  const baseType = Object.prototype.toString
+    .call(data)
+    .replace(/^\[object\s(.+)\]$/g, '$1')
+    .toLowerCase()
+  const type = data instanceof Element ? 'element' : baseType
+  return type
+}
+const isPrimitive = data => {
+  // 判断是否是基本数据类型
+  const primitiveType =
+    'undefined,null,boolean,string,symbol,number,bigint,map,set,weakmap,weakset'.split(',') // 其实还有很多类型
+  return primitiveType.includes(getType(data))
+}
+const isObject = data => getType(data) === 'object'
+const isArray = data => getType(data) === 'array'
+export const deepClone = data => {
+  let cache = {} // 缓存值，防止循环引用
+  const baseClone = _data => {
+    let res
+    if (isPrimitive(_data)) {
+      return data
+    } else if (isObject(_data)) {
+      res = { ..._data }
+    } else if (isArray(_data)) {
+      res = [..._data]
+    }
+    // 判断是否有复杂类型的数据，有就递归
+    Reflect.ownKeys(res).forEach(key => {
+      if (res[key] && getType(res[key]) === 'object') {
+        // 用cache来记录已经被复制过的引用地址。用来解决循环引用的问题
+        if (cache[res[key]]) {
+          res[key] = cache[res[key]]
+        } else {
+          cache[res[key]] = res[key]
+          res[key] = baseClone(res[key])
+        }
+      }
+    })
+    return res
+  }
+  return baseClone(data)
 }
